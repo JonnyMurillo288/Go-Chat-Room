@@ -9,8 +9,6 @@ import (
 type room struct {
 	Name string
 	Members map[string]*client
-	Messages map[string]string
-	Commands command
 }
 
 
@@ -25,17 +23,14 @@ func (c *client) joinRoom(roomName string) {
 	room = c.Server.Rooms[roomName]
 	c.Room = room
 	room.Members[c.Name] = c
-	room.Messages[c.Name] = "has joined the chat ;)"
 }
 
 func (c *client) newRoom(roomName string) *room {
 	room :=  &room{
 		Name: roomName,
 		Members: make(map[string]*client),
-		Messages: make(map[string]string),
 	}
 	room.Members[c.Name] = c
-	room.Messages[c.Name] = "has joined the chat ;)"
 	return room
 }
 
