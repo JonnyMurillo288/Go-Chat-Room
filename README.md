@@ -9,7 +9,8 @@ clients requesting to leave the room and going back to the home page
 - This loop also contains the brodcast channel to broadcast into the websockets 
 
 ### Client
-- Client object holds the name, room, http.Cliet
+- Client object holds the name, room, http.Client
+
 ##### http.Client v websocket.Conn
 - The reason for a client object holding both http.Client and websocket.Conn is to ensure that the client 
 can connect to the http connection at port 8329 
@@ -24,4 +25,3 @@ sending of messages in a single port on their machine
 - Holding these object will allow for easier control over the serer and allow for more functionality in the future,
 currently not too useful
 
-### 
