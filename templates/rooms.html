@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <form action="/room" method="post">
+            <input type="submit" name="quit">
+        </form>
+    <title>Chat-Room: {{.Name}}</title>
+    <h1>{{ .Name }}</h1>
+    <h4> People in the room
+        <p>
+        {{range $k, $v := .Members }}
+            {{ $k }}
+        {{end}}
+        </p>
+    </h4>
+    </head>
+    <body>
+        {{ range $key, $value := .Messages }}
+            {{ $key }} : {{ $value }}
+        {{end}}
+    </body>
+    <form action="/room" method="post">
+        Send Message: <input type="text" name="msg">
+        <input type="submit" value="Send">
+    </form>
+</html>
